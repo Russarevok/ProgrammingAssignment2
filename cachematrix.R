@@ -23,7 +23,8 @@ makeCacheMatrix <- function(x = matrix()) {
   m <- NULL
   set <- function(y) {
     x <<- y
-    m <<- NULL
+    m <<- NULL  ## this ensures that if the matrix changes, cacheSolve()
+                ## function will recompute and not use cached value
   }
   get <- function() x
   setInvMatrix <- function(solve) m <<- solve
